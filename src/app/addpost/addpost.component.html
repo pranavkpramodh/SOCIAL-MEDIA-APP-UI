@@ -1,0 +1,35 @@
+
+
+<div class="container">
+    <div class="modal">
+    <div class="head">
+        <i class="fa-solid fa-arrow-left"></i>
+        <h5>Create New Pest</h5>
+        <button (click)="preview()">Preview</button>
+        <button (click)="addpost()">Share</button>
+ 
+    </div>
+
+    <form [formGroup]="addpostForm" style="position: relative;" >
+    <div class="post">
+        <div class="img"   >
+            <input style="position: absolute; top: 30px; left: 220px;" type="file" formControlName="img" name="img">
+
+            <img style="position: absolute; bottom: -100px; left: 120px; border: none ; outline: 0;" src="../../assets/img/{{images}}" width="300px" height="300px">
+
+        </div>
+
+        <div class="description">
+            <a style="font-size: 14px;">{{loginedUser}}</a>
+
+
+            <textarea formControlName="desp" name="desp" id="desp" cols="30" rows="10" placeholder="Write a caption..."></textarea>
+            <h5>Accessibility</h5>
+
+        </div>
+    </div>
+</form>
+    </div>
+</div>
+
+ 

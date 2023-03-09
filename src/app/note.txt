@@ -1,0 +1,1 @@
+aside left is a coponent that coponent contain search, notification 

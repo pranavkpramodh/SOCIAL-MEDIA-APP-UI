@@ -1,0 +1,111 @@
+<div class="container">
+
+    
+    <div class="hover ttile"><h2 style="font-family: 'Satisfy', cursive; font-size: 28px; font-weight: 400"><img class="insta-icon"  src="https://i0.wp.com/chetanedits.com/wp-content/uploads/2022/07/kisspng-computer-icons-clip-art-logo-social-media-vector-g-instagram-1-min-min-waggly-club-5b74f86899ce78.74023287153439242463-1.png?ssl=1" alt=""><span>instagram</span></h2></div>
+    <div class="hover home"><a ><i class="fa-sharp fa-solid fa-house" ></i><span>Home</span></a></div>
+    <div class="hover search" (click)="showSearch()"><a><i class="fa-sharp fa-solid fa-magnifying-glass"></i><span>Search</span></a></div>
+    <div class="hover explore"><a ><i class="fa-sharp fa-solid fa-compass"></i><span>Explore</span></a></div>
+    <div class="hover reels"><a ><i class="fa-sharp fa-solid fa-film"></i><span>Reels</span></a></div>
+    <div class="hover messages"><a ><i class="fa-sharp fa-solid fa-message"></i><span>Messages</span></a></div>
+    <div class="hover notifications"  (click)="showNotification()"><a ><i class="fa-sharp fa-solid fa-heart"></i><span>Notifications</span></a></div>
+    <div class="hover create"><a routerLink="/addpost"><i class="fa-sharp fa-solid fa-plus"></i><span>Create</span></a></div>
+    <div class="hover profile"><a ><img src="../../assets/img/avatar-user-icon-vector-45404138.jpg" alt="" width="25px" height="25px" style="border-radius: 50%;"/><span>Profile</span></a></div>
+    <div class="hover more" (click)="showMenu()"><i class="fa-sharp fa-solid fa-bars"></i><span>Menu</span> </div>
+
+    <!-- search part -->
+    <div class="searchshow" *ngIf="searchShow ">
+        <div class="head">Search</div>
+ 
+        <div class="searchbar">
+            <input type="search" placeholder="  Search" (keyup)="search($event)">
+        </div>
+        <div id="vertical"></div>
+
+        <div class="search-result-container">
+            <div class="recent">Recent</div>
+            <div class="search-result">
+
+            <div class="me" *ngFor="let user of allusers | filter :searchKey:'uname'"><div class="dp"   style="position: relative; font-size: 14px;">
+                <img routerLink="/otherprofile/{{user.uname}}" *ngIf="user.posts[0]; else elseblock" src="../../assets/img/{{user.posts[0]}}" alt="profile"  >&nbsp;&nbsp; {{user.uname}} <br>
+                <ng-template  #elseblock>
+                    <img src="../../assets/img/149071.png" alt="profile"  >&nbsp;&nbsp; {{user.uname}} <br>
+                </ng-template>
+                
+                <p style="color: rgba(199, 199, 199, 0.91); position: absolute; left: 81px; bottom: -10px; font-size: 13px; "  >{{user.fullName}}</p> 
+            </div></div>
+
+         
+        </div>
+
+    </div>
+    </div>
+
+
+   
+
+
+
+
+    <!-- menu part -->
+    <div class="menu" *ngIf="menuShow">
+        <div class="settings">
+            <h5>Settings</h5>
+            <i class="fa-sharp fa-solid fa-gear"></i>
+        </div>
+        <div class="settings">
+            <h5>Saved</h5>
+            <i class="fa-solid fa-bookmark"></i>
+            </div>
+        <div class="settings">
+            <h5>Switch appearance</h5>
+            <i class="fa-regular fa-moon"></i>
+        </div>
+        <div class="settings">
+            <h5>Your activity</h5>
+            <i class="fa-solid fa-clock-rotate-left"></i>
+        </div>
+        <div class="settings">
+            <h5>Report a problem</h5>
+            <i class="fa-solid fa-circle-exclamation"></i>
+        </div>
+        <div class="settings">
+            <h5>Switch accounts</h5>
+        </div>
+        <div class="settings" (click)="logout()">
+            <h5>Log out</h5>
+        </div>
+
+    </div>
+</div>
+<!-- mobile tools -->
+
+
+ <!-- notification -->
+ <div class="notification-container" *ngIf="notificationShow" style="color: white;">
+    <div class="top" style="padding-bottom: 30px;">
+
+        <div style="font-size: 25px;" class="h2">Notifications</div>
+        <h5>Today</h5>
+    </div>
+
+    <div class="notify-container">
+        <div class="box" style="display: flex; flex-direction: column;">
+    <div class="notification" *ngFor="let notification of notifications">
+        <div  routerLink="/otherprofile/{{notification}}" class="left" style= "position: relative; font-size: 14px;">
+           <div><img src="../../assets/img/326652315_2123539267830135_793145488146095247_n.jpg" alt=""></div> 
+           <h2 style="font-size: 13px; padding-left: 20px; margin-top: -20px; " >{{notification}} </h2>&nbsp;&nbsp;<span style="margin-top: -20px;"> started</span>
+           <h4 style="position: absolute; bottom: 10px; right: 10px; font-weight: 300;">following you</h4>
+        </div>
+
+
+        <div class="right">
+            <button style="border: 0; background-color: #118cff; font-weight: 600; color: white; width: 95px; height: 35px; border-radius: 10px; position: absolute; right: 0; top: 20%;">Follow Back</button>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+
+

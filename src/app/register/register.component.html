@@ -1,0 +1,44 @@
+<div class="container">
+        
+            
+            <div class="box">
+                <form [formGroup]="registerForm">
+                    <h2>instagram</h2>
+                    <h5>Sign up to see photos and videos from your friends.</h5>
+
+                    <button class="fb"><i style="font-size: 15px;" class="fa-brands fa-square-facebook"></i>&nbsp; Log in with Facebook</button>
+                     <div class="or"><div></div>OR <div></div></div>
+
+                    
+
+                    <div class="input-container"><input type="text"  formControlName="num" name="num" id="num" placeholder="Mobile Number" autocomplete="off">
+                    <div class="validation" *ngIf="this.registerForm.get('num')?.errors && this.registerForm.get('num')?.touched" style="color: rgba(182, 20, 20, 0.799);"><i class="fa-solid fa-x cross"></i></div>
+                    </div>
+
+                    <div class="input-container"><input type="text" formControlName="fullName" name="fullName" id="fullName" placeholder="Full Name" autocomplete="off"> 
+                    <div class="validation" *ngIf="this.registerForm.get('fullName')?.errors && this.registerForm.get('fullName')?.touched" style="color: rgba(182, 20, 20, 0.799);"><i class="fa-solid fa-x cross"></i></div>
+                    </div>
+
+                    <div class="input-container"><input type="date" id="date" formControlName="bday">
+                        <label for="date" style="color: rgba(0, 0, 0, 0.755); padding-left: 10px; font-family: 'poppins'; font-size: 11px;">date of birth</label>
+                    <div class="validation bday" *ngIf="this.registerForm.get('bday')?.errors && this.registerForm.get('bday')?.touched" style="color:  rgba(182, 20, 20, 0.799);" ><i class="fa-solid fa-x cross"></i></div>
+                    </div>
+
+                    <div class="input-container"><input type="text" formControlName="uname" name="uname" id="uname" placeholder="Username" autocomplete="off">
+                    <div class="validation" *ngIf="this.registerForm.get('uname')?.errors && this.registerForm.get('uname')?.touched" style="color: rgba(182, 20, 20, 0.799);"><i class="fa-solid fa-x cross"></i></div>
+                    </div>
+
+                    <div class="input-container"><input type="password" formControlName="pswd" name="pswd" id="pswd" placeholder="Password">
+                    <div class="validation" *ngIf="this.registerForm.get('pswd')?.errors && this.registerForm.get('pswd')?.touched" style="color: rgba(182, 20, 20, 0.799);"><i class="fa-solid fa-x cross"></i></div>
+                    </div>
+
+                    <div class="policy"><p>People who use our service may have uploaded your contact information to Instagram. <a href="#">Learn More</a> </p></div>
+                    <div class="policy"><p>By signing up, you agree to our <a href="#">Terms</a>,<br> <a href="#">Privacy policy </a> and <a href="#">Cookies Policy</a>.</p></div>
+
+                    <button class="signup" (click)="register()">Sign up</button>
+                </form>
+
+            </div>
+            <div class="link">Have an account? <a routerLink="">&nbsp;Log in</a></div>
+
+</div> 

@@ -1,0 +1,153 @@
+<div  class="container" style="position: relative;">
+    <div class="profile-container">
+
+        <div class="profile">
+            <img *ngIf="dp; else elseblock" src="../../assets/img/{{dp}}" alt="">
+            <ng-template #elseblock>
+                <img src="../../assets/img/149071.png" alt="">
+            </ng-template>
+            <div class="user-details">
+                <div class="name">
+                    <a>{{loginedUserInfo.uname}}</a>
+                    <button (click)="showprofile()" (click)="showedit()">Edit profile</button>
+                 <button>Ad Tools</button>
+                    <i class="fa-solid fa-gear"></i>
+                </div>
+
+                <div class="followers">
+                    <a>{{loginedUserInfo.posts.length}} Posts</a>
+ 
+                    <a>{{loginedUserInfo.follwers.length}} Followers</a>
+                    <a>{{loginedUserInfo.following.length}} Following</a>
+                </div> 
+                <div class="fullname">{{loginedUserInfo.fullName}}</div>
+            </div> 
+        </div>
+
+        <div class="hilights">
+            <div class="hlt">
+                <img src="../../assets/img/325537466_1861318494209777_2719947505190623513_n.jpg" alt="">
+            </div>
+            <div class="hlt">
+                <img src="../../assets/img/326757883_1108693963862634_7936754089770325326_n.jpg" alt="">
+            </div>
+            <div class="hlt">
+                <img src="../../assets/img/326652315_2123539267830135_793145488146095247_n.jpg" alt="">
+            </div>
+            <div class="hlt">
+                <img src="../../assets/img/325537466_1861318494209777_2719947505190623513_n.jpg" alt="">
+            </div>
+            <div class="hlt">
+                <img src="../../assets/img/325522836_491513713128673_6787257810015153712_n.jpg" alt="">
+            </div>
+            <div class="hlt">
+                <img src="../../assets/img/325537466_1861318494209777_2719947505190623513_n.jpg" alt="">
+            </div>
+            
+            
+            <div><i class="fa-solid fa-plus"></i></div>
+        </div>
+    </div>
+
+
+
+
+        <div class="saved-container">
+        <div class="myposts">POSTS</div>
+        <div class="saved">SAVED</div>
+        
+    </div>
+    <div class="post-container">
+        <div class="img"  style=" justify-content: center;">
+        <div  style="position: relative;" *ngFor="let post of pictures">
+        <img  src="../../assets/img/{{post}}" alt="" style="max-height: 280px; min-height: 280px; min-width:280px; max-width:280px ;">
+        <div class="likes">
+            <h5 style="font-size: 25px; font-weight: 500; position: absolute; z-index: 9990999999; top: 10%; left: 45%;">{{likescount}} <i  style="color: rgb(242, 241, 241); font-size: 20px;" class="fa-sharp fa-solid fa-heart" ></i></h5>
+        </div>
+    </div>
+       
+    </div>
+</div>
+
+
+<div *ngIf="editShow" class="edit-profile" style="color: white; position: absolute; z-index: 99; background-color: black;">
+    <div class="edit-container">
+        <form [formGroup]="editProfileForm">
+
+    <div class="myprofile">
+
+        <div class="row">
+        <div class="left">
+            <img style="width: 35px; height: 35px;" src="" alt="myprofile">
+        </div>
+        <div class="right" style="display: flex; flex-direction: column;">
+            <div class="name">{{loginedUserInfo.uname}}</div>
+            <a style="color: rgb(53, 97, 255);">Cahange profile phote</a>
+        </div>
+       </div>
+
+       <div class="row">
+        <div class="left">
+            <h3>Name</h3>
+        </div>
+        <div class="right">
+            <input formControlName="fullName" name="fullName" type="text" placeholder="{{loginedUserInfo.fullName}}" autocomplete="off">
+        </div>
+        </div>
+
+        <div class="row">
+            <div class="left">
+                <h3>Current username</h3>
+            </div>
+            <div class="right">
+               <div><input formControlName="cuname" name="cuname" type="text" placeholder="{{loginedUserInfo.uname}}" autocomplete="off"></div>
+            </div>
+            </div>
+    
+
+        <div class="row">
+        <div class="left">
+            <h3>username</h3>
+        </div>
+        <div class="right">
+            <div><input formControlName="uname" name="uname" type="text" placeholder="{{loginedUserInfo.uname}}" autocomplete="off"></div>
+        </div>
+        </div>
+
+
+
+        
+
+
+        <div class="row">
+        <div class="left">
+            <h3>Phone Number</h3>
+        </div>
+        <div class="right">
+           <div><input formControlName="num" name="num" type="text" placeholder="{{loginedUserInfo.num}}" autocomplete="off"></div>
+        </div>
+        </div>
+
+     
+      
+       
+
+        <div>
+        <div class="button">
+            <input (click)="updateuser()" type="submit" style="background-color: rgb(37, 128, 255); color: white;" value="submitt">
+        </div>
+        </div>
+
+
+    </div> 
+
+
+
+</form>
+
+</div>
+
+</div>
+
+
+</div>

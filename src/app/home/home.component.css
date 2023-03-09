@@ -1,0 +1,316 @@
+
+.container{
+    width: 100%;
+    display: flex;
+    /* background-color: black; */
+}
+
+
+
+.tools{
+    position: sticky;
+    top: 0;
+    max-width: 250px;
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+}
+
+@media screen and (max-width:1264px){
+    .tools{
+     
+        max-width: 60px;
+    }
+}
+
+@media screen and (max-width:1000px){
+    
+   .profile{
+     display: none;
+   }
+
+ 
+    
+}
+@media screen and (max-width:767px){
+    
+
+    
+}
+
+
+
+.mobile-tools{
+    
+    position: absolute;
+    left: 90px;
+    /* transform: rotate(180deg); */
+    background-color: rgba(190, 121, 121, 0.301);
+
+}
+
+.home{
+   width: 100%; 
+   height: auto;
+   display: flex;
+   padding-top: 50px;
+   justify-content: center;
+   background-color: black;
+
+}
+
+.hero{
+    display: flex;
+    overflow: hidden;
+    
+}
+
+.post{
+    padding: 0 10px;
+    width: 500px;
+}
+
+
+/* profile container */
+.profile-container{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    padding-left: 20px;
+}
+
+.title{
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+}
+
+.title h4{
+    color: rgba(255, 255, 255, 0.626);
+}
+
+.title a{
+    color: white;
+    text-decoration: none;
+}
+
+.me img{
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+}
+
+.me {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+}
+
+p{
+    width: 180px;
+ 
+}
+
+
+.me .dp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.me a{
+    text-decoration: none;
+    color: rgb(35, 147, 232);
+}
+
+.sugestions img{
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.suggetions-container{
+    height: 238px;
+    overflow: hidden;
+}
+
+.sugestions{
+    display: flex;
+    position: relative;
+    padding: 4px 0;
+}
+
+.sugestions .follow{
+    position: absolute;
+    right: 0;
+    top: 50%; 
+    transform: translateY(-50%);
+}
+
+.sugestions a{
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+}
+
+.sugestions .content .follow{
+    color: rgb(35, 147, 232);
+    font-size: 13px;
+}
+
+.sugestions h6{
+    color: rgba(255, 255, 255, 0.632);
+    font-size: 11px;
+    font-weight: 300;
+}
+
+.about{
+    color: rgba(255, 255, 255, 0.523);
+}
+
+.about a{
+    color: rgba(255, 255, 255, 0.523);
+    font-size: 11px;
+    font-weight: 200;
+    text-decoration: none;
+}
+
+
+/* user  posts */
+.user-posts{
+    padding: 30px 10px;
+
+}
+
+.user-posts img{
+    max-width: 460px;
+    width: 100%;
+    max-height:550px;
+}
+
+.post-title{
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 14px 0;
+
+}
+
+button, img{
+    cursor: pointer;
+}
+
+.post-title a{
+    text-decoration: none;
+    color: white;
+    font-size: 12px;
+}
+
+.post-title .more{
+    position: absolute;
+    right: 2px;
+    font-size: 17px;
+}
+
+.post-title img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.user-posts .like{
+    display: flex;
+    /* align-items: center; */
+    position: relative;
+    
+}
+
+.user-posts .like .save{
+    position: absolute;
+    right: 0;
+}
+
+.user-posts .like i{
+    color: white;
+    font-size: 21px;
+    padding: 0 7px;
+}
+
+
+/* like */
+.show-like img{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+
+}
+
+.show-like{
+    color: white;
+    display: flex;
+    font-size: 13px;
+    align-items: center;
+    padding: 12px 0;
+}
+
+.show-like h5{
+    font-weight: 400;
+}
+
+.show-like a{
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+
+}
+
+/* description */
+.description{
+    display: flex;
+    color: white;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.description a{
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+/* comments */
+.view-comments a{
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.649);
+    font-size: 11px;
+
+}
+
+.comment{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.comment button{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: rgb(40, 162, 255);
+    cursor: pointer;
+}
+
+.comment input{
+    background-color: transparent;
+    border: none;
+    color: white;
+    width: 300px;
+    height: 30px;
+}
+
+.comment input:focus{
+    outline: none;
+}

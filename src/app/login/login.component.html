@@ -1,0 +1,28 @@
+<div class="container">
+        
+            
+    <div class="box">
+        <form [formGroup]="loginForm">
+            <h2>instagram</h2>
+
+
+            <div class="input-container"><input type="text" formControlName="uname" name="uname" id="uname" placeholder="Username" autocomplete="off">
+            <div class="validation" *ngIf="this.loginForm.get('uname')?.errors && this.loginForm.get('uname')?.touched" style="color: rgba(182, 20, 20, 0.799);"><i class="fa-solid fa-x cross"></i></div>
+            </div>
+
+            <div class="input-container"><input type="password" formControlName="pswd" name="pswd" id="pswd" placeholder="Password">
+            <div class="validation" *ngIf="this.loginForm.get('pswd')?.errors && this.loginForm.get('pswd')?.touched" style="color: rgba(182, 20, 20, 0.799);"><i class="fa-solid fa-x cross"></i></div>
+            </div>
+
+            <button class="signup" (click)="login()">Log in</button>
+
+            <div class="or"><div></div>OR <div></div></div>
+            <button class="fb"><i style="font-size: 15px;" class="fa-brands fa-square-facebook"></i>&nbsp; Log in with Facebook</button>
+            <div class="forgot"><a href="#">Forgot password?</a></div>
+
+        </form>
+
+    </div>
+    <div class="link">Don't have an account?  <a routerLink="register">&nbsp;Sign up</a></div>
+
+</div>

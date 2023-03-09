@@ -1,0 +1,159 @@
+<div class="container">
+
+    <div class="tools">
+        <app-tools></app-tools>
+    </div>
+
+
+ 
+    <div class="home" >
+
+        <div class="hero">
+            
+            <div class="post">
+                <div class="stories">
+                    <app-story></app-story>
+                </div> 
+
+                <div *ngIf="errMsg == 'empty'"><h3 style="color: white; text-align: center;">No Posts Available</h3></div>
+ 
+                 <!-- <div *ngIf="errMsg == 'empty'"> -->
+                <div  class="user-posts" *ngFor="let post of myPosts">
+                    <div  class="post-title"><img src="../../assets/img/{{post.postUrls}}" alt=""><a #posteduser (click)="otherprofile(post.uname)" class="" routerLink="/home">&nbsp;&nbsp;{{post.uname}}</a> <a  class="more"><i class="fa-sharp fa-solid fa-ellipsis"></i></a></div>
+                    <img  src="../../assets/img/{{post.postUrls}}" alt="post"  (dblclick)="like(post)" >
+ 
+                    <div class="like">
+                        <a ><i (click)="like(post)"   *ngIf="currentpost == post.uname"   [style.color]='likecolor'  class="fa-sharp fa-solid fa-heart" ></i></a>
+                        <a ><i (click)="like(post)"  *ngIf="currentpost != post.uname"  style="color: rgb(242, 241, 241);" class="fa-sharp fa-solid fa-heart" ></i></a>
+                        
+
+                        
+                        <a ><i class="fa-sharp fa-solid fa-comment"></i></a><a ><i class="fa-solid fa-paper-plane"></i></a><a ><i class="fa-sharp fa-solid fa-bookmark save" ></i></a></div>
+                    <div style="color: white;" *ngIf="currentpost == post.uname" >{{likecount}}</div>
+                    <div class="show-like"><a ><img src="../../assets/img/149071.png" alt=""></a><h5>&nbsp;&nbsp;Liked by <a >{{lastlike}}</a> and  <a >{{likecounto}} others</a> </h5></div>
+
+                    <div class="description"><a>{{post.uname}}</a><p>&nbsp; {{post.caption}}  </p></div>
+
+                    <div class="view-comments"><a >View all comment _count_ comments</a></div>
+                    <div class="comment"><input type="text" placeholder="Add a comment..."><button> Post</button></div>
+
+
+                </div>
+            <!-- </div> -->
+ 
+
+            </div>
+
+            <div class="profile">
+
+                <div class="profile-container">
+                    <div class="me"><div class="dp" style="position: relative;"> 
+                        <img src="../../assets/img/{{dp}}" alt="profile" routerLink="/profile" >&nbsp;&nbsp;  {{loginedUser}} <br>
+                        <p style="color: rgba(255, 255, 255, 0.505); position: absolute; left: 65px; bottom: 2px;" routerLink="/profile" >{{loginedUserName}}</p> 
+                    </div> <a href="#">Switch</a></div>
+
+                    <div class="title"><h4>Suggetions for you</h4><a href="#">See All</a></div>
+                    <div class="suggetions-container">
+                    <div class="sugestions" *ngFor="let suggest of suggestedusers">
+                        <img src="../../assets/img/149071.png" alt="sugestion" (click)="otherprofile(suggest)" >
+                        <div class="content"><a (click)="otherprofile(suggest)" >{{suggest}}</a><h6>Followed by </h6> <a class="follow">Follow</a></div>
+                    </div>
+                    </div>
+                    
+
+                    <div class="about">
+                        <a >About</a> . <a >Help</a> . <a >Press</a> . <a >API</a> . <a >Jobs</a> . <a >Privacy</a> . <a >Terms</a> . <a >Locations</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <!-- <div class="mobile-tools">
+        <app-tools></app-tools>
+    </div> -->
+ 
+</div>
+<!-- <div class="container">
+
+    <div class="tools">
+        <app-tools></app-tools>
+    </div>
+
+
+ 
+    <div class="home">
+
+        <div class="hero">
+            
+            <div class="post">
+                <div class="stories">
+                    <app-story></app-story>
+                </div> 
+
+                <div *ngIf="errMsg == 'empty'"><h3 style="color: white; text-align: center;">No Posts Available</h3></div>
+ 
+
+                <div class="user-posts" *ngFor="let post of allPosts">
+                    <div class="post-title"><img src="../../assets/img/{{post.postUrls}}" alt=""><a #posteduser (click)="otherprofile(post.uname)" class="" routerLink="/home">&nbsp;&nbsp;{{post.uname}}</a> <a  class="more"><i class="fa-sharp fa-solid fa-ellipsis"></i></a></div>
+                    <img src="../../assets/img/{{post.postUrls}}" alt="post"  (dblclick)="like(post)" >
+
+                    <div class="like"><a ><i (click)="like(post)"   *ngIf="currentpost == post.uname   "   style="color: {{likecolor }};"  class="fa-sharp fa-solid fa-heart" ></i></a>
+                        <a ><i (click)="like(post)"  *ngIf="currentpost != post.uname"  style="color: rgb(242, 241, 241);" class="fa-sharp fa-solid fa-heart" ></i></a>
+
+                        
+                        <a ><i class="fa-sharp fa-solid fa-comment"></i></a><a ><i class="fa-solid fa-paper-plane"></i></a><a ><i class="fa-sharp fa-solid fa-bookmark save" ></i></a></div>
+                    <div style="color: white;" *ngIf="currentpost == post.uname" >{{likecount}}</div>
+                    <div class="show-like"><a ><img src="../../assets/img/PXL_20220916_101904390.jpg" alt=""></a><h5>&nbsp;&nbsp;Liked by <a >{{lastlike}}</a> and  <a >{{likecounto}} others</a> </h5></div>
+
+                    <div class="description"><a>{{post.uname}}</a><p>&nbsp; {{post.caption}}  </p></div>
+
+                    <div class="view-comments"><a >View all comment _count_ comments</a></div>
+                    <div class="comment"><input type="text" placeholder="Add a comment..."><button> Post</button></div>
+
+
+                </div>
+ 
+
+            </div>
+
+            <div class="profile">
+
+                <div class="profile-container">
+                    <div class="me"><div class="dp" style="position: relative;"> 
+                        <img src="../../assets/img/{{dp}}" alt="profile" routerLink="/profile" >&nbsp;&nbsp;  {{loginedUser}} <br>
+                        <p style="color: rgba(255, 255, 255, 0.505); position: absolute; left: 65px; bottom: 2px;" routerLink="/profile" >{{loginedUserName}}</p> 
+                    </div> <a href="#">Switch</a></div>
+
+                    <div class="title"><h4>Suggetions for you</h4><a href="#">See All</a></div>
+                    <div class="suggetions-container">
+                    <div class="sugestions" *ngFor="let suggest of suggestedusers">
+                        <img src="../../assets/img/868320_people_512x512.png" alt="sugestion" (click)="otherprofile(suggest)" >
+                        <div class="content"><a (click)="otherprofile(suggest)" >{{suggest}}</a><h6>Followed by </h6> <a class="follow" >Follow</a></div>
+                    </div>
+                    </div>
+                    
+
+                    <div class="about">
+                        <a >About</a> . <a >Help</a> . <a >Press</a> . <a >API</a> . <a >Jobs</a> . <a >Privacy</a> . <a >Terms</a> . <a >Locations</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+ 
+
+
+
+
+
+
+
+</div> -->

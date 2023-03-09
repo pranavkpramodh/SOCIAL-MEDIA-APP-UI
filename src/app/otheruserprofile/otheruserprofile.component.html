@@ -1,0 +1,74 @@
+<div class="container">
+    <div class="profile-container">
+
+        <div class="profile">
+  <img *ngIf="dp; else elseblock" src="../../assets/img/{{dp}}" alt="">
+            <ng-template #elseblock>
+                <img src="../../assets/img/149071.png" alt="">
+            </ng-template>
+                <div class="user-details">
+                <div class="name">
+                    <a>{{otheruserdetails.uname}}</a>
+                    <button class="followbtn" [style.background-color]=" btnstyle" (click)="follow()" (click)="followingUser()">{{followbtn || 'Follow'}}</button>
+                    <button>Message</button>
+                    <i class="fa-solid fa-gear"></i>
+                </div> 
+
+                <div class="followers">
+                    <a>{{otheruserdetails.posts.length }} Posts</a>
+ 
+                    <a>{{followerscount }} Followers</a>
+                    <a>{{ followingcount }} Following</a> 
+                </div>
+                <div class="fullname">{{otheruserdetails.fullName}}</div>
+            </div>
+        </div>
+
+        <div class="hilights">
+            <div class="hlt">
+                <img src="../../assets/img/325537466_1861318494209777_2719947505190623513_n.jpg" alt="">
+            </div>
+            <div class="hlt">
+                <img src="../../assets/img/326757883_1108693963862634_7936754089770325326_n.jpg" alt="">
+            </div>
+            <div class="hlt">
+                <img src="../../assets/img/326652315_2123539267830135_793145488146095247_n.jpg" alt="">
+            </div>
+            <div class="hlt">
+                <img src="../../assets/img/325537466_1861318494209777_2719947505190623513_n.jpg" alt="">
+            </div>
+            <div class="hlt">
+                <img src="../../assets/img/325522836_491513713128673_6787257810015153712_n.jpg" alt="">
+            </div>
+            <div class="hlt">
+                <img src="../../assets/img/325537466_1861318494209777_2719947505190623513_n.jpg" alt="">
+            </div>
+            
+        </div>
+    </div>
+
+
+ 
+
+        <div class="saved-container">
+        <div class="myposts">POSTS</div>
+        <div class="saved">TAGGED</div>
+        
+    </div>
+    <div class="post-container">
+        <div class="img"  style=" justify-content: center;">
+        <div  style="position: relative;" *ngFor="let post of pictures">
+        <img  src="../../assets/img/{{post}}" alt="" style="max-height: 280px; min-height: 280px; min-width:280px; max-width:280px ;">
+        <div class="likes">
+            <h5 style="font-size: 25px; font-weight: 500; position: absolute; z-index: 9990999999; top: 10%; left: 45%;">{{likescount}} <i  style="color: rgb(242, 241, 241); font-size: 20px;" class="fa-sharp fa-solid fa-heart" ></i></h5>
+        </div>
+    </div>
+       
+    </div>
+</div>
+
+
+</div>
+
+
+
